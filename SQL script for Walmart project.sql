@@ -102,7 +102,7 @@ SELECT
 FROM sales;
 
 
--- What is the most selling product line
+-- What is the most selling product line?
 SELECT
 	SUM(quantity) as qty,
     product_line
@@ -110,15 +110,8 @@ FROM sales
 GROUP BY product_line
 ORDER BY qty DESC;
 
--- What is the most selling product line
-SELECT
-	SUM(quantity) as qty,
-    product_line
-FROM sales
-GROUP BY product_line
-ORDER BY qty DESC;
 
--- What is the total revenue by month
+-- What is the total revenue by month?
 SELECT
 	month_name AS month,
 	SUM(total) AS total_revenue
@@ -260,8 +253,7 @@ FROM sales
 WHERE branch = "C"
 GROUP BY gender
 ORDER BY gender_cnt DESC;
--- Gender per branch is more or less the same hence, I don't think has
--- an effect of the sales per branch and other factors.
+-- Gender per branch seems to have no eefect on sales per branches
 
 -- Another approach
 SELECT gender, COUNT(gender) AS gender_count, branch
@@ -276,8 +268,7 @@ SELECT
 FROM sales
 GROUP BY time_of_day
 ORDER BY avg_rating DESC;
--- Looks like time of the day does not really affect the rating, its
--- more or less the same rating each time of the day.alter
+--Seems like time has no effec in the decision of customers.
 
 
 
@@ -289,8 +280,7 @@ FROM sales
 WHERE branch = "A"
 GROUP BY time_of_day
 ORDER BY avg_rating DESC;
--- Branch A and C are doing well in ratings, branch B needs to do a 
--- little more to get better ratings.
+-- Branch A and C are doing well in ratings, branch B looks like needs some more investigation.
 
 -- Another approach
 SELECT time_of_day,
